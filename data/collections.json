@@ -1,0 +1,53 @@
+[
+  {
+    "slug": "salvage-protocol",
+    "name": "Salvage Protocol",
+    "description": "Terrain, models, games and writing connected to Salvage Protocol."
+  },
+  {
+    "slug": "zone-clash",
+    "name": "Zone Clash",
+    "description": "A card game and the tool used to make its cards."
+  },
+  {
+    "slug": "egress",
+    "name": "EGRESS",
+    "description": "Small wrong objects, and the instrument that produced them."
+  },
+  {
+    "slug": "games-that-do-not-exist",
+    "name": "Games That Do Not Exist",
+    "department": "recreation-and-correspondence",
+    "description": "Cards and components for games that were never made."
+  },
+  {
+    "slug": "handmade-terrain",
+    "name": "Handmade Terrain",
+    "department": "scale-representation",
+    "description": "Terrain built by hand."
+  },
+  {
+    "slug": "unaffiliated-figures",
+    "name": "Unaffiliated Figures",
+    "department": "scale-representation",
+    "description": "Small figures belonging to no army."
+  },
+  {
+    "slug": "abstracts",
+    "name": "Abstracts",
+    "department": "approved-wall-treatments",
+    "description": "Works with no subject."
+  },
+  {
+    "slug": "portraits",
+    "name": "Portraits",
+    "department": "figural-works",
+    "description": "Portraits drawn from no reference."
+  },
+  {
+    "slug": "landscapes",
+    "name": "Landscapes",
+    "department": "figural-works",
+    "description": "Watercolor landscapes."
+  }
+]

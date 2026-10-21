@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "scale-representation",
+    "name": "Scale Representation",
+    "description": "Models, figures, terrain and environments at reduced scale."
+  },
+  {
+    "slug": "display-and-preservation",
+    "name": "Display & Preservation",
+    "description": "Mounts and stands for specimens and other objects that are not to be handled."
+  },
+  {
+    "slug": "field-equipment",
+    "name": "Field Equipment",
+    "description": "Portable and improvised furniture, mounts and supports."
+  },
+  {
+    "slug": "approved-wall-treatments",
+    "name": "Approved Wall Treatments",
+    "description": "Generally abstract decorative works on paper."
+  },
+  {
+    "slug": "figural-works",
+    "name": "Figural Works",
+    "description": "Portraits, landscapes and other works on paper that depict something."
+  },
+  {
+    "slug": "non-conforming-textiles",
+    "name": "Non-Conforming Textiles",
+    "description": "Textile samples that did not meet the standard and were kept anyway."
+  },
+  {
+    "slug": "garment-standards",
+    "name": "Garment Standards",
+    "description": "Patterns and specifications for work clothing."
+  },
+  {
+    "slug": "costume-and-ceremony",
+    "name": "Costume & Ceremony",
+    "description": "Costumes, masks and other things made to be worn on occasion."
+  },
+  {
+    "slug": "recreation-and-correspondence",
+    "name": "Recreation & Correspondence",
+    "description": "Games, card systems, stories and letters."
+  },
+  {
+    "slug": "research-division",
+    "name": "Research Division",
+    "description": "Software and generators."
+  },
+  {
+    "slug": "unbuilt-designs",
+    "name": "Unbuilt Designs",
+    "description": "Plans that were never executed, or never finished."
+  }
+]

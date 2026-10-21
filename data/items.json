@@ -1,0 +1,39 @@
+[
+  {
+    "id": "AD-0002",
+    "department": "field-equipment",
+    "title": "Portable table, backpack-mounted",
+    "description": "A surface that extends from a backpack for use where a lap would otherwise be used.\n\nThe weight of the pack on the ground keeps the surface level.",
+    "condition": "Requires a loaded pack. A full water bottle is an acceptable ballast.",
+    "status": "catalogued",
+    "images": [],
+    "files": [],
+    "added": "2026-10-19",
+    "hidden": ""
+  },
+  {
+    "id": "AD-0004",
+    "department": "non-conforming-textiles",
+    "title": "Textile sample, square, non-conforming",
+    "description": "A square that does not conform to the standard square.\n\nSeveral variants exist. None conform in the same way.",
+    "condition": "Handle with care. Resists classification.",
+    "status": "catalogued",
+    "images": [],
+    "files": [],
+    "added": "2026-10-20",
+    "hidden": ""
+  },
+  {
+    "id": "AD-0005",
+    "department": "non-conforming-textiles",
+    "title": "Crocheted \"Garment\"",
+    "description": "What seems to be a crocheted garment. Possibly unfinished.",
+    "condition": "",
+    "status": "catalogued",
+    "details": [],
+    "images": [],
+    "files": [],
+    "added": "2026-10-21",
+    "hidden": "An archivist has noted that this item seemed to have grown bigger with more crocheting added since initial pre-cataloguing inventory. If someone is adding to it. Please stop."
+  }
+]
