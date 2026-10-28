@@ -1,17 +1,5 @@
 [
   {
-    "id": "AD-0001",
-    "department": "display-and-preservation",
-    "title": "Specimen stand, upright, single foramen",
-    "description": "A stand for displaying one specimen with its nerve hole facing outward.\n\nThe prongs are kept to a minimum. The pads adjust.",
-    "condition": "Functional. Not tested with any specimen other than the one it was made for.",
-    "status": "catalogued",
-    "images": [],
-    "files": [],
-    "added": "2026-10-18",
-    "hidden": ""
-  },
-  {
     "id": "AD-0004",
     "department": "non-conforming-textiles",
     "title": "Crocheted \"Garment\"",
