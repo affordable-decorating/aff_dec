@@ -1,5 +1,17 @@
 [
   {
+    "id": "AD-0001",
+    "department": "display-and-preservation",
+    "title": "Specimen stand, upright, single foramen",
+    "description": "A stand for displaying one specimen with its nerve hole facing outward.\n\nThe prongs are kept to a minimum. The pads adjust.",
+    "condition": "Functional. Not tested with any specimen other than the one it was made for.",
+    "status": "catalogued",
+    "images": [],
+    "files": [],
+    "added": "2026-10-18",
+    "hidden": ""
+  },
+  {
     "id": "AD-0002",
     "department": "field-equipment",
     "title": "Portable table, backpack-mounted",
@@ -22,18 +34,5 @@
     "files": [],
     "added": "2026-10-20",
     "hidden": ""
-  },
-  {
-    "id": "AD-0005",
-    "department": "non-conforming-textiles",
-    "title": "Crocheted \"Garment\"",
-    "description": "What seems to be a crocheted garment. Possibly unfinished.",
-    "condition": "",
-    "status": "catalogued",
-    "details": [],
-    "images": [],
-    "files": [],
-    "added": "2026-10-21",
-    "hidden": "An archivist has noted that this item seemed to have grown bigger with more crocheting added since initial pre-cataloguing inventory. If someone is adding to it. Please stop."
   }
 ]

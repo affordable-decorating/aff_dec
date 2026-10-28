@@ -1,14 +1,82 @@
 [
   {
-    "path": "form-12.html",
-    "title": "Form 12: Originality Attestation",
+    "slug": "form-12",
+    "type": "form",
+    "title": "Originality Attestation",
+    "number": "12",
     "owner": "Commissions",
-    "updated": "06/02/97"
+    "issued": "1995-06-02",
+    "originally": "",
+    "revision": 1,
+    "status": "current",
+    "access": "all",
+    "restrictedTo": "",
+    "seeAlso": [],
+    "submitTo": "Commissions, Ext. 230",
+    "body": "All contributors must complete this form before a commissioned work is accepted into inventory. Print, complete in ink, and return to Commissions. Incomplete forms will not be processed.\n\nA work is original if it has not previously existed in any form. Resemblance to an existing work is grounds for rejection.",
+    "fields": [
+      {
+        "label": "Contributor ID",
+        "instruction": ""
+      },
+      {
+        "label": "Commission number",
+        "instruction": ""
+      },
+      {
+        "label": "Title of work",
+        "instruction": ""
+      },
+      {
+        "label": "Date of completion",
+        "instruction": ""
+      },
+      {
+        "label": "Number of times the work was looked at before submission",
+        "instruction": ""
+      },
+      {
+        "label": "I attest that this work has not previously existed",
+        "instruction": "[  ]"
+      },
+      {
+        "label": "Signature",
+        "instruction": ""
+      }
+    ],
+    "hidden": ""
   },
   {
-    "path": "warehouse-access.html",
-    "title": "Notice to All Staff: Warehouse Access",
+    "slug": "warehouse-access",
+    "type": "notice",
+    "title": "Warehouse Access",
+    "number": "",
     "owner": "Facilities",
-    "updated": "11/14/97"
+    "issued": "1995-11-14",
+    "originally": "",
+    "revision": 1,
+    "status": "current",
+    "access": "all",
+    "restrictedTo": "",
+    "seeAlso": [],
+    "to": "All Staff",
+    "from": "Facilities, Ext. 214",
+    "body": "Effective immediately, staff entering the warehouse must sign the access log at the loading dock. This applies to all staff regardless of department.\n\nBay 4 is not to be entered after 5:30 pm. Staff who require access to Bay 4 should make arrangements with Facilities during business hours.\n\nInventory is not to be moved between bays without a work order. Please do not rearrange items for any reason, including appearance.\n\nThank you for your cooperation.",
+    "hidden": ""
+  },
+  {
+    "slug": "extensions",
+    "type": "reference",
+    "title": "Telephone Extensions",
+    "owner": "Facilities",
+    "issued": "1995-03-01",
+    "originally": "",
+    "revision": 1,
+    "status": "current",
+    "access": "all",
+    "restrictedTo": "",
+    "seeAlso": [],
+    "body": "| Department | Extension |\n|---|---|\n| Facilities | 214 |\n| Commissions | 230 |",
+    "hidden": ""
   }
 ]

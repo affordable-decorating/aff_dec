@@ -151,3 +151,13 @@ figcaption { margin-top: 0.4rem; color: var(--muted); font-size: 0.9rem; }
 }
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- site pages ---------- */
+
+.revised { margin-top: 3rem; color: var(--muted); font-size: 0.85rem; }
+.log-entry h2 { margin-top: 2rem; }
+main ul, main ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+main h3 { margin: 1.6rem 0 0.5rem; font-size: 1rem; }
+table.grid { border-collapse: collapse; margin: 0 0 1.25rem; font-size: 0.95rem; }
+table.grid th, table.grid td { border: 1px solid var(--rule); padding: 0.3rem 0.7rem; text-align: left; vertical-align: top; }
+table.grid th { background: rgba(0, 0, 0, 0.04); }

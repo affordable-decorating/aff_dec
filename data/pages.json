@@ -6,9 +6,38 @@
     "menu": "none",
     "order": 0,
     "listed": false,
-    "lede": "Archive and Catalogue",
+    "lede": "An archive of the contents of one warehouse.",
     "recentCount": 5,
-    "body": "At a recent unclaimed property auction, a warehouse and office complex was purchased. By whom is not documented on this site, nor is it interesting or relevant.\n\nThe complex’s occupant from some time in the mid 1970s until the mid 1990s was Affordable Decorating, a design consultancy firm. Their stated mission was:\n\"Supply high-volume, low-cost decorating materials to hotels, corporate offices, and municipal buildings.\" \n\nThis site catalogues the contents of this building for primarily archival purposes as required by a clause in the auction contract that the purchaser (again, not interesting, relevant nor documented) did not notice and that probably explains the surprising lack of competing bids at auction.\n\nSelect items from the warehouse are or will be made available for purchase via personal correspondence. This is discouraged, but not explicitly forbidden by the aforementioned clause in the auction contract. \n\nWe assume no liability for any legal action against buyers if this turns out to be a bad decision on our part. As of yet, we are unsure what legal entities exist that could take action to enforce this clause, but our legal team has advised us to comply with the mandated archiving out of caution. Please see the [About](about/index.html) page for all legal notices.\n\nThe firm's Intranet has been partially recovered for assistance in understanding the purpose of many of the items that were found in the initial warehouse inventory efforts that do not seem to fit the firm’s stated mission. The currently available pages can be found in our [intranet archive](intranet:home) and will be updated as further recovery proceeds.",
+    "body": "This site catalogues the contents of a warehouse. The warehouse was purchased at a tax sale. The previous occupant was Affordable Decorating, a design consultancy that supplied low-cost decorating to offices, motels and municipal buildings from the early 1970s until it stopped answering its telephone.\n\nNothing was labelled as expected. Alongside the decorative stock there were crates of commissioned work, several filing cabinets, and a great many forms. The commissioned work has no clients on record. Each piece is original. The paperwork is firm about this.\n\nItems are catalogued in the order they are reached. Each receives an inventory number, a department and a description. Where a condition note applies, it is included. Many items have a 3D file, available to download without charge. Each file is either a scan of the item as it stands in the warehouse, or a reconstruction made from the firm's internal blueprints, in which case the item itself has not been found.\n\nThe firm's internal pages were recovered from a server in the office. They are presented in the [intranet archive](intranet:home) as found.",
+    "revised": "",
+    "hidden": ""
+  },
+  {
+    "slug": "about",
+    "type": "standard",
+    "title": "About",
+    "menu": "about",
+    "order": 1,
+    "listed": true,
+    "body": "Affordable Decorating is a fictional design consultancy. Its history is invented. Everything on this site was made by one person.\n\nThe objects, files, patterns and writing here are real. The company, the warehouse, the staff and the archive are not. No person on this site is real, and no biography here describes anyone.\n\nFiles are free to download and use. Some original works may be available to acquire. Where that is so, the item's own page gives a price and an email link to inquire. There is no shop or cart, and nothing else here asks for anything.",
+    "revised": "",
+    "hidden": ""
+  },
+  {
+    "slug": "notes",
+    "type": "notes",
+    "title": "Cataloguer's notes",
+    "menu": "none",
+    "order": 2,
+    "listed": false,
+    "body": "Working notes, newest first.",
+    "entries": [
+      {
+        "date": "2026-10-20",
+        "title": "Photography begins",
+        "body": "The first items were photographed against a plain wall, with a scale card."
+      }
+    ],
     "revised": "",
     "hidden": ""
   }

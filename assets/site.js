@@ -3,10 +3,12 @@
 
   Every page sets <body data-page="..." data-root="...">.
     data-root  is the relative path back to the site root ("./", "../", "../../").
-    data-page  is one of: home, about, catalog, department, collection, collections, item, intranet-index.
+    data-page  is one of: home, page, catalog, department, collection, collections, item.
+    A "page" shell reads ?id=slug, or data-page-id="slug" (the About stub does this).
 
-  All catalog content comes from /data/*.json. To add an item, edit
-  data/items.json. No other file needs to change.
+  All content comes from /data/*.json. To add an item, edit data/items.json.
+  Site pages (front page, About, notes, finding aids) live in data/pages.json.
+  No other file needs to change.
 */
 (function () {
   "use strict";
@@ -41,6 +43,8 @@
   }
 
   var collections = [];
+  var sitePages = [];
+  var PAGE_TYPES = ["standard", "notes", "finding-aid", "front"];
 
   function itemUrl(id) { return root + "item/?id=" + encodeURIComponent(id); }
   function deptUrl(slug) { return root + "department/?id=" + encodeURIComponent(slug); }
@@ -68,6 +72,31 @@
       .split(/\n\s*\n/)
       .filter(function (chunk) { return chunk.trim() !== ""; })
       .map(function (chunk) { return el("p", { text: chunk.trim() }); });
+  }
+
+  // Body text with the shared markup (assets/markup.js).
+  function markup(text) {
+    return window.ADMarkup.render(text, { root: root });
+  }
+
+  // Records marked "draft": true are skipped everywhere, as if they did not exist.
+  function notDraft(record) { return !record.draft; }
+
+  function pageUrl(slug) { return root + "page/?id=" + encodeURIComponent(slug); }
+
+  function findPage(slug) {
+    return sitePages.filter(function (p) { return p.slug === slug; })[0];
+  }
+
+  function byOrder(a, b) {
+    var d = (Number(a.order) || 0) - (Number(b.order) || 0);
+    return d !== 0 ? d : (a.title < b.title ? -1 : 1);
+  }
+
+  function menuPages(group) {
+    return sitePages.filter(function (p) {
+      return p.listed !== false && p.menu === group && PAGE_TYPES.indexOf(p.type) !== -1;
+    }).sort(byOrder);
   }
 
   // Where a downloadable file came from, in the archive's own terms.
@@ -116,6 +145,7 @@
     var primary = el("ul");
     primary.appendChild(link(root + "catalog/", "All items"));
     primary.appendChild(link(root + "collections/", "Collections"));
+    menuPages("main").forEach(function (p) { primary.appendChild(link(pageUrl(p.slug), p.title)); });
     nav.appendChild(primary);
 
     var details = el("details", { "class": "depts" }, [el("summary", { text: "Departments" })]);
@@ -125,6 +155,27 @@
     // Open on wide screens, collapsed on narrow ones, unless the page is inside a department.
     if (window.matchMedia("(min-width: 48rem)").matches || page === "department") details.setAttribute("open", "");
     nav.appendChild(details);
+    renderSideFoot();
+  }
+
+  // The foot of the side menu: pages in the "about" group, then the intranet.
+  // The shells carry a plain About link for when scripts are off; this replaces it.
+  function renderSideFoot() {
+    var foot = document.querySelector(".side-foot");
+    if (!foot) return;
+    while (foot.firstChild) foot.removeChild(foot.firstChild);
+    var aboutPages = menuPages("about");
+    if (!aboutPages.length) aboutPages = [{ slug: "about", title: "About" }];
+    aboutPages.forEach(function (p) {
+      var a = el("a", { href: pageUrl(p.slug), text: p.title });
+      if (page === "page" && currentPageId() === p.slug) a.setAttribute("aria-current", "page");
+      foot.appendChild(a);
+    });
+    foot.appendChild(el("a", { href: root + "intranet/", text: "Intranet archive" }));
+  }
+
+  function currentPageId() {
+    return body.getAttribute("data-page-id") || query("id");
   }
 
   function renderItemList(items, departments, options) {
@@ -155,15 +206,78 @@
 
   // ---------- pages ----------
 
-  function renderHome(items, departments) {
-    var target = document.getElementById("recent");
-    if (!target) return;
-    var recent = items.slice().sort(newestFirst).slice(0, 5);
-    if (!recent.length) {
-      target.appendChild(el("p", { text: "No items have been catalogued yet." }));
+  // Quiet footer shared by site pages: the revised date, then the hidden comment.
+  function pageFoot(target, pg) {
+    if (pg.revised) target.appendChild(el("p", { "class": "revised", text: "Last revised " + pg.revised + "." }));
+    if (pg.hidden) target.appendChild(document.createComment(" " + String(pg.hidden).replace(/--/g, "- -") + " "));
+  }
+
+  function renderFront(pg, items, departments) {
+    var target = document.getElementById("content");
+    target.appendChild(el("h1", { "class": "visually-hidden", text: pg.title || "Affordable Decorating" }));
+    if (pg.lede) target.appendChild(el("p", { "class": "lede", text: pg.lede }));
+    target.appendChild(markup(pg.body));
+    target.appendChild(el("h2", { text: "Recent additions" }));
+    var count = Math.max(1, Number(pg.recentCount) || 5);
+    var recent = items.slice().sort(newestFirst).slice(0, count);
+    if (!recent.length) target.appendChild(el("p", { text: "No items have been catalogued yet." }));
+    else target.appendChild(renderItemList(recent, departments, { showDate: true }));
+    target.appendChild(el("p", {}, [el("a", { href: root + "catalog/", text: "All items" })]));
+    pageFoot(target, pg);
+  }
+
+  function renderNotes(pg, target) {
+    if (pg.body) target.appendChild(markup(pg.body));
+    var entries = (pg.entries || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    if (!entries.length) target.appendChild(el("p", { text: "Nothing has been entered yet." }));
+    entries.forEach(function (e) {
+      var section = el("section", { "class": "log-entry" });
+      section.appendChild(el("h2", { text: (e.date || "") + (e.title ? "  " + e.title : "") }));
+      section.appendChild(markup(e.body));
+      target.appendChild(section);
+    });
+  }
+
+  function renderFindingAid(pg, items, departments, target) {
+    if (pg.body) target.appendChild(markup(pg.body));
+    var listed = [];
+    (pg.items || []).forEach(function (ref) {
+      var item = items.filter(function (i) { return i.id === ref.id; })[0];
+      if (item) listed.push({ item: item, note: ref.note });
+    });
+    if (!listed.length) { target.appendChild(el("p", { text: "No items have been selected for this guide." })); return; }
+    var list = el("ul", { "class": "entries" });
+    listed.forEach(function (row) {
+      var entry = el("li", {}, [el("a", { href: itemUrl(row.item.id), text: row.item.id + "  " + row.item.title })]);
+      var meta = [departmentName(departments, row.item.department)];
+      if (row.item.status && row.item.status !== "catalogued") meta.push(row.item.status);
+      entry.appendChild(el("span", { "class": "meta", text: meta.join(", ") }));
+      if (row.note) entry.appendChild(el("span", { "class": "meta", text: row.note }));
+      list.appendChild(entry);
+    });
+    target.appendChild(list);
+  }
+
+  function renderSitePage(items, departments) {
+    var target = document.getElementById("content");
+    var pg = findPage(currentPageId());
+    if (!pg || PAGE_TYPES.indexOf(pg.type) === -1 || pg.type === "front") {
+      setTitle("Page not on file");
+      target.appendChild(el("h1", { text: "Page not on file" }));
+      target.appendChild(el("p", {}, ["No page with that name is on file. ", el("a", { href: root, text: "Return to the front page" }), "."]));
       return;
     }
-    target.appendChild(renderItemList(recent, departments, { showDate: true }));
+    setTitle(pg.title);
+    target.appendChild(el("h1", { text: pg.title }));
+    if (pg.type === "notes") renderNotes(pg, target);
+    else if (pg.type === "finding-aid") renderFindingAid(pg, items, departments, target);
+    else target.appendChild(markup(pg.body));
+    pageFoot(target, pg);
+  }
+
+  function renderHome(items, departments) {
+    var pg = findPage("home") || { type: "front", title: "Affordable Decorating", body: "", recentCount: 5 };
+    renderFront(pg, items, departments);
   }
 
   function renderCatalog(items, departments) {
@@ -256,7 +370,7 @@
       });
       target.appendChild(el("p", { "class": "lede" }, parts));
     }
-    paragraphs(coll.description).forEach(function (p) { target.appendChild(p); });
+    target.appendChild(markup(coll.description));
     var members = items
       .filter(function (item) { return item.collection === slug; })
       .sort(function (a, b) { return a.id < b.id ? -1 : 1; });
@@ -310,7 +424,7 @@
       article.appendChild(figure);
     });
 
-    paragraphs(item.description).forEach(function (p) { article.appendChild(p); });
+    article.appendChild(markup(item.description));
 
     if (item.condition) {
       article.appendChild(el("h2", { text: "Condition" }));
@@ -343,49 +457,23 @@
     target.appendChild(article);
   }
 
-  function renderIntranetIndex(pages) {
-    var target = document.getElementById("pages");
-    if (!target) return;
-    var table = el("table", { "class": "grid" });
-    var head = el("tr", {}, [
-      el("th", { text: "Page" }),
-      el("th", { text: "Owner" }),
-      el("th", { text: "Last updated" })
-    ]);
-    table.appendChild(el("thead", {}, [head]));
-    var tbody = el("tbody");
-    pages.forEach(function (p) {
-      tbody.appendChild(el("tr", {}, [
-        el("td", {}, [el("a", { href: p.path, text: p.title })]),
-        el("td", { text: p.owner || "" }),
-        el("td", { text: p.updated || "" })
-      ]));
-    });
-    table.appendChild(tbody);
-    target.appendChild(table);
-  }
-
   // ---------- start ----------
 
   function start() {
-    if (page === "intranet-index") {
-      getJSON("data/intranet.json").then(renderIntranetIndex).catch(function () {
-        showError("This page needs a web server to load its list. See README.md.");
-      });
-      return;
-    }
-
     Promise.all([
       getJSON("data/items.json"),
       getJSON("data/departments.json"),
-      getJSON("data/collections.json").catch(function () { return []; })
+      getJSON("data/collections.json").catch(function () { return []; }),
+      getJSON("data/pages.json").catch(function () { return []; })
     ])
       .then(function (results) {
-        var items = results[0];
+        var items = results[0].filter(notDraft);
         var departments = results[1];
         collections = results[2];
+        sitePages = results[3].filter(notDraft);
         renderNav(departments);
         if (page === "home") renderHome(items, departments);
+        else if (page === "page") renderSitePage(items, departments);
         else if (page === "catalog") renderCatalog(items, departments);
         else if (page === "department") renderDepartment(items, departments);
         else if (page === "collection") renderCollection(items, departments);
