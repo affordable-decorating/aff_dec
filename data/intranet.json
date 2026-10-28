@@ -6,14 +6,10 @@
     "number": "12",
     "owner": "Commissions",
     "issued": "1995-06-02",
-    "originally": "",
     "revision": 1,
     "status": "current",
     "access": "all",
-    "restrictedTo": "",
-    "seeAlso": [],
-    "submitTo": "Commissions, Ext. 230",
-    "body": "All contributors must complete this form before a commissioned work is accepted into inventory. Print, complete in ink, and return to Commissions. Incomplete forms will not be processed.\n\nA work is original if it has not previously existed in any form. Resemblance to an existing work is grounds for rejection.",
+    "submitTo": "Commissions Mailroom. Floor 2.",
     "fields": [
       {
         "label": "Contributor ID",
@@ -32,11 +28,15 @@
         "instruction": ""
       },
       {
-        "label": "Number of times the work was looked at before submission",
+        "label": "Does the work pose any risk of harm to staff (physical or emotional)?",
+        "instruction": "[  ] Yes  [  ] No"
+      },
+      {
+        "label": "If so, explain here:",
         "instruction": ""
       },
       {
-        "label": "I attest that this work has not previously existed",
+        "label": "I attest that this work has an originality score of 8+ as calculated via Form 12b",
         "instruction": "[  ]"
       },
       {
@@ -44,6 +44,8 @@
         "instruction": ""
       }
     ],
+    "seeAlso": [],
+    "body": "Print this form and fill out in ink. \n\nAll Contributors at seniority level 4b or lower must also submit form 12b (Originality Calculation Worksheet)",
     "hidden": ""
   },
   {
