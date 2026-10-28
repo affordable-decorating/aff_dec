@@ -26,10 +26,16 @@
   {
     "id": "AD-0004",
     "department": "non-conforming-textiles",
-    "title": "Textile sample, square, non-conforming",
-    "description": "A square that does not conform to the standard square.\n\nSeveral variants exist. None conform in the same way.",
-    "condition": "Handle with care. Resists classification.",
+    "title": "Crocheted \"Garment\"",
+    "description": "What seems to be an attempt to create a garment crocheted out of various yarns. Possibly unfinished.",
+    "condition": "",
     "status": "catalogued",
+    "details": [
+      {
+        "label": "Medium",
+        "value": "Various Yarns"
+      }
+    ],
     "images": [],
     "files": [],
     "added": "2026-10-20",
