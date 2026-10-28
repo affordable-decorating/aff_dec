@@ -12,18 +12,6 @@
     "hidden": ""
   },
   {
-    "id": "AD-0002",
-    "department": "field-equipment",
-    "title": "Portable table, backpack-mounted",
-    "description": "A surface that extends from a backpack for use where a lap would otherwise be used.\n\nThe weight of the pack on the ground keeps the surface level.",
-    "condition": "Requires a loaded pack. A full water bottle is an acceptable ballast.",
-    "status": "catalogued",
-    "images": [],
-    "files": [],
-    "added": "2026-10-19",
-    "hidden": ""
-  },
-  {
     "id": "AD-0004",
     "department": "non-conforming-textiles",
     "title": "Crocheted \"Garment\"",
