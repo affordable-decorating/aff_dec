@@ -12,7 +12,28 @@
         "value": "Various Yarns"
       }
     ],
-    "images": [],
+    "images": [
+      {
+        "src": "images/ad-0004-973.jpg",
+        "alt": "Multicolored yarn garment front view",
+        "caption": "Front (?) View"
+      },
+      {
+        "src": "images/ad-0004-974.jpg",
+        "alt": "Multicolored yarn garment side view",
+        "caption": "Side view 1"
+      },
+      {
+        "src": "images/ad-0004-975.jpg",
+        "alt": "Multicolored yarn garment back view",
+        "caption": "Back (?) View"
+      },
+      {
+        "src": "images/ad-0004-976.jpg",
+        "alt": "Multicolored yarn garment side view",
+        "caption": "Side view 2"
+      }
+    ],
     "files": [],
     "added": "2026-10-20",
     "hidden": ""
