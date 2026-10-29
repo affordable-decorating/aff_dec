@@ -2,11 +2,11 @@
   {
     "slug": "form-12",
     "type": "form",
-    "title": "Originality Attestation",
+    "title": "New Work Submission",
     "number": "12",
     "owner": "Commissions",
     "issued": "1995-06-02",
-    "revision": 1,
+    "revision": 6,
     "status": "current",
     "access": "all",
     "submitTo": "Commissions Mailroom. Floor 2.",
