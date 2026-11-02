@@ -48,5 +48,10 @@
     "slug": "unbuilt-designs",
     "name": "Unbuilt Designs",
     "description": "Plans that were never executed, or never finished."
+  },
+  {
+    "slug": "experimental-audio",
+    "name": "Experimental Audio",
+    "description": "Audio files"
   }
 ]
