@@ -37,5 +37,39 @@
     "files": [],
     "added": "2026-10-20",
     "hidden": ""
+  },
+  {
+    "id": "AD-0017",
+    "department": "scale-representation",
+    "title": "ooo",
+    "description": "",
+    "condition": "",
+    "status": "catalogued",
+    "details": [],
+    "images": [],
+    "files": [
+      {
+        "label": "1_~",
+        "path": "files/ad-0017-1.mp3"
+      },
+      {
+        "label": "2_¹",
+        "path": "files/ad-0017-2.mp3"
+      },
+      {
+        "label": "3_“",
+        "path": "files/ad-0017-3.mp3"
+      },
+      {
+        "label": "4_t",
+        "path": "files/ad-0017-4-t.mp3"
+      },
+      {
+        "label": "5_è",
+        "path": "files/ad-0017-5.mp3"
+      }
+    ],
+    "added": "2026-11-02",
+    "hidden": ""
   }
 ]
