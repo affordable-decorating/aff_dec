@@ -40,12 +40,25 @@
   },
   {
     "id": "AD-0017",
-    "department": "scale-representation",
+    "department": "experimental-audio",
     "title": "ooo",
-    "description": "",
+    "description": "Compact Disc in handmade case. Exported audio files available for download.",
     "condition": "",
     "status": "catalogued",
-    "details": [],
+    "details": [
+      {
+        "label": "Artist",
+        "value": "░"
+      },
+      {
+        "label": "Album",
+        "value": "ooo"
+      },
+      {
+        "label": "Genre",
+        "value": "Drone/Noise"
+      }
+    ],
     "images": [],
     "files": [
       {
