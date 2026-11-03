@@ -59,7 +59,16 @@
         "value": "Drone/Noise"
       }
     ],
-    "images": [],
+    "images": [
+      {
+        "src": "images/ad-0017-1052.jpg",
+        "alt": "Square album art. Bright yellow bars and squares with many gray smeared marks"
+      },
+      {
+        "src": "images/ad-0017-1054.jpg",
+        "alt": "Back cover"
+      }
+    ],
     "files": [
       {
         "label": "1_~",
